@@ -1,6 +1,7 @@
 import joblib
 import pandas as pd
 import streamlit as st
+from sklearn.neighbors import NearestNeighbors
 
 df = pd.read_csv('ecommerce_data.csv', encoding='latin1')
 # List of items to display in the dropdown
