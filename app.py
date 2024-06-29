@@ -1,6 +1,7 @@
 import joblib
 import pandas as pd
 import streamlit as st
+from PIL import Image
 
 df = pd.read_csv('ecommerce_data.csv', encoding='latin1')
 # List of items to display in the dropdown
@@ -42,8 +43,10 @@ def get_similar_items_by_name(item_name):
     return similar_items_names
 
 
-st.title("E-Commerce Recommendation System")
-
+st.markdown("<h1 style='text-align: center; font-size: 30px;'>E-Commerce Recommendation System</h1>",
+            unsafe_allow_html=True)
+image = Image.open('ecom.png')
+st.image(image)
 # List of items to display in the dropdown
 items = df['Description']
 
