@@ -6,8 +6,14 @@ df = pd.read_csv('ecommerce_data.csv', encoding='latin1')
 # List of items to display in the dropdown
 items = df['Description']
 
-# Load the vectorizer
-knn = joblib.load('knn.joblib')
+# Load the knn model
+try:
+    knn = joblib.load('knn.joblib')
+except FileNotFoundError:
+    st.error(
+        "Error loading knn model. Check if 'knn.joblib' exists in the specified path.")
+except Exception as e:
+    st.error(f"An error occurred while loading knn model: {e}")
 
 # Load the tfidf_matrix
 tfidf_matrix = joblib.load('tfidf_matrix.joblib')
